@@ -1,0 +1,46 @@
+* {
+    zoom: 109%;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap:100px;
+}
+
+.college-table {
+    grid-column: 1;
+    width: 600px;
+    border-collapse: collapse;
+    margin: 10px;
+}
+
+.college-table th, .college-table td {
+    border: 1px solid #ddd;
+    padding: 3px;
+    text-align: left;
+}
+
+th {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    margin: 1px;
+    padding: 3px;
+}
+
+.filter {
+    grid-column: 2;
+    border-collapse: collapse;
+}
+
+.filter {
+    border: 1px solid black;
+    padding: 0px;
+    width: 400px;
+}
+
+.filter td {
+margin: 0px;
+padding: 0px;
+}
