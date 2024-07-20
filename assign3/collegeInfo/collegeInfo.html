@@ -18,9 +18,9 @@
                 <th>Tuition</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody id="college-table-body">
             <tr>
-                <td>Stanfordy</td>
+                <td>Stanford</td>
                 <td>1570</td>
                 <td>1380</td>
                 <td>44757</td>
@@ -58,22 +58,20 @@
         </tbody>
     </table>
     <div class="filter">
-        <table>
-            <thead>
-                <tr>
-                    <th>Search Criteria</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        <input type="radio" name="ownership">Public
-                        <input name="ownership" type="radio"> Private
-                        <input name="ownership" type="radio"> Don't Care
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <h2 class="header">Search Criteria</h2>
+        <div class="radios">
+            <label><input type="radio" name="ownership" value="public">Public</label>
+            <label><input type="radio" name="ownership" value="private">Private</label>
+            <label><input type="radio" name="ownership" value="dontcare" checked>Don't Care</label>
+        </div>
+        <div class="textfilters">
+            <label>Maximum Tuition <input type="number" id="maxtuition"></label>
+            <label>Maximum High SAT <input type="number" id="maxsat"></label>
+            <label>Minimum Low SAT <input type="number" id="minsat"></label>
+            <button onclick="updateTable()">Update</button>
+        </div>
     </div>
 </div>
-</body> 
+<script src="colleges.js"></script>
+</body>
+</html>

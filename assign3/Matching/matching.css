@@ -1,0 +1,17 @@
+.container {
+    text-align: center;
+    margin-top: 50px;
+}
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+img {
+    width: 100px;
+    height: 150px;
+    cursor: pointer;
+}
+button {
+    margin-top: 20px;
+}

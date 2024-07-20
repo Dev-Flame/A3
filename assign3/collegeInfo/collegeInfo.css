@@ -10,18 +10,18 @@
 
 .college-table {
     grid-column: 1;
-    width: 600px;
+    width: 700px;
     border-collapse: collapse;
     margin: 10px;
 }
 
 .college-table th, .college-table td {
-    border: 1px solid #ddd;
-    padding: 3px;
+    border: 1px solid #8d8d8d;
+    padding: 5px;
     text-align: left;
 }
 
-th {
+th, .header {
     background-color: #000000;
     color: white;
     text-align: center;
@@ -38,9 +38,44 @@ th {
     border: 1px solid black;
     padding: 0px;
     width: 400px;
+    font-size: 13pt;
 }
 
-.filter td {
-margin: 0px;
-padding: 0px;
+
+
+.filterter td {
+    display: flex;
+    align-items: right;
+justify-content: space-between;
+}
+
+
+.radios {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 20px;
+}
+
+.radios input[type="radio"] {
+    margin-right: 0px;
+}
+
+.radios label {
+    display: inline-flex;
+    align-items: center;
+}
+
+.textfilters {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.textfilters input {
+    width: 100px;
 }
