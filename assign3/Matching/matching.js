@@ -1,24 +1,22 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const cards = document.querySelectorAll('.cards img');
-    const restartButton = document.querySelector('button');
-    let hasFlippedCard = false;
-    let lockBoard = false;
-    let firstCard, secondCard;
-    let matches = 0;
+    var cards = document.getElementsByTagName('img');
+    var restartButton = document.getElementById('btn');
+    var hasFlippedCard = false;
+    var lockBoard = false;
+    var firstCard, secondCard;
   
-    const cardImages = [
+    var cardImages = [
       '1clubs.png', '1hearts.png',
       '2clubs.png', '2hearts.png',
       '3clubs.png', '3hearts.png'
     ];
   
     function shuffleCards() {
-      cards.forEach(card => {
-        let randomPos = Math.floor(Math.random() * 6);
-        card.style.order = randomPos;
-      });
+      for (var i = 0; i < cards.length; i++) {
+        var randomPos = Math.floor(Math.random() * 6); 
+        cards[i].style.order = randomPos; //ai
+      }
     }
-  
+    
     function flipCard() {
         if (lockBoard) return;
         if (this === firstCard) return;
@@ -30,14 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
           firstCard = this;
           return;
         }
-      
-        secondCard = this;
-        checkForMatch();
+        
+          secondCard = this;
+          checkForMatch();
+
     }
   
     function checkForMatch() {
-      let isMatch = firstCard.id[0] === secondCard.id[0];  //AI
+      var isMatch = firstCard.id[0] === secondCard.id[0];  //AI
       if (isMatch) {
+        lockBoard = true;
         setTimeout(() => {
           firstCard.src = 'clear.png';
           secondCard.src = 'clear.png';
@@ -52,14 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
     function disableCards() {
       firstCard.removeEventListener('click', flipCard);
       secondCard.removeEventListener('click', flipCard);
-      matches++;
-  
-      if (matches === 3) {
-        setTimeout(() => {
-          alert('Congratulations! You won!');
-        }, 500);
-      }
-  
       resetBoard();
     }
   
@@ -75,21 +67,20 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   
     function resetBoard() {
-      [hasFlippedCard, lockBoard] = [false, false];
-      [firstCard, secondCard] = [null, null];
+      hasFlippedCard = false;
+      lockBoard = false;
+      firstCard = null;
+      secondCard = null;
     }
   
     function restartGame() {
-      cards.forEach(card => {
-        card.src = 'back.png';
-        card.addEventListener('click', flipCard);
-      });
-      matches = 0;
+      for (var i = 0; i < cards.length; i++) {
+        cards[i].src = 'back.png';
+        cards[i].addEventListener('click', flipCard);
+      }
       shuffleCards();
       resetBoard();
     }
-  
-    shuffleCards();
-    cards.forEach(card => card.addEventListener('click', flipCard));
+    
+    restartGame();
     restartButton.addEventListener('click', restartGame);
-  });

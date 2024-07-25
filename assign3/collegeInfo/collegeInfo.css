@@ -45,7 +45,6 @@ th, .header {
 
 .filterter td {
     display: flex;
-    align-items: right;
 justify-content: space-between;
 }
 
