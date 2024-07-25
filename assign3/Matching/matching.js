@@ -73,7 +73,7 @@
       secondCard = null;
     }
   
-    function restartGame() {
+    function StartGame() {
       for (var i = 0; i < cards.length; i++) {
         cards[i].src = 'back.png';
         cards[i].addEventListener('click', flipCard);
@@ -82,5 +82,5 @@
       resetBoard();
     }
     
-    restartGame();
-    restartButton.addEventListener('click', restartGame);
+    StartGame();
+    restartButton.addEventListener('click', StartGame);
